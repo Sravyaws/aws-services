@@ -1,0 +1,12 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "This is my new bucket",
+    "Resources": {
+        "g1s2": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "BucketName": "srvnew"
+            }
+        }
+    }
+}
