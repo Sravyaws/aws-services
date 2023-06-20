@@ -1,23 +1,35 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "This is my new vpc",
+    "Description": "This is ntier vpc",
+    "Parameters": {
+        "vpccidr" : {
+            "Type" : "String",
+            "Default": "10.0.0.0/16",
+            "Description": "vpc clidrblock"
+          } 
+    },
     "Resources": {
         "ntier": {
             "Type": "AWS::EC2::VPC",
             "Properties": {
-                "Name": "ntier",
                 "CidrBlock": "10.0.0.0/16",
+                "CidrBlock": {
+                    "Ref": "vpccidr"
+                },
                 "EnableDnsHostnames": true,
                 "Tags": [ 
                     {
-                        "key": "Name",
+                        "Key": "Name",
                         "Value": "ntier"
                     },
                     {
-                        "key": "Env",
+                        "Key": "Env",
                         "Value": "Dev"
+                    },
+                    {
+                        "Key": "CreatedBy",
+                        "Value": "Cloudformation"
                     }
-
                 ]
             }
         }
